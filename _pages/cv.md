@@ -11,27 +11,20 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* 2021-Present: Certified Systems Engineer
+  * Intrust IT
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* 2017-2021: Associate Consultant, Systems Engineer I
+  * Afidence
+  * Afidence is a technology consulting and services firm launched in 2010 with a goal to earn trusted relationships by surrounding our clients with clear, transparent, and honest solutions unmatched in the IT Industry. As an IT advocate and business provider, Afidence serves over 80 active clients in the Cincinnati-Dayton region, extending into 30 states and 15 countries. Headquartered in Mason, Ohio, we also maintain support offices in Miamisburg, Ohio.
 
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
+* 2014-2017: Desktop Support Specialist
+  * Desktop Support Specialist
+  * Provided remote support for Synchrony Financials work at home user base as well as support and build the Desktop Support SharePoint page. Hands and feet for the local business center data center. Previously worked this position under Robert Half, was invited to come back by the program management due to the quality of work and level of customer service skills shown. Also, the primary support contact for Synchrony Financial regarding remote user issues. 
+
 Skills
 ======
 * Skill 1
@@ -41,23 +34,6 @@ Skills
   * Sub-skill 2.3
 * Skill 3
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
   
 Service and leadership
 ======
