@@ -5,8 +5,11 @@ permalink: /posts/2024/03/Microsoft-365-PS-Cheat-Sheet/
 tags:
   - Microsoft 365
   - Powershell
-  - category2
+  - Office 365
 ---
+# Microsoft 365 PS Cheat Sheet
+This blog contains powershell snippits that I find useful when working with exchange online
+
 
 # How to send email via PowerShell
 ## Direct Send
