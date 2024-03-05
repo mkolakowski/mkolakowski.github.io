@@ -11,6 +11,9 @@ redirect_from:
 
 Education
 ======
+* Western Govonors University
+  * B.S. Cybersecurity and Information Assurance
+  * Graduated April 2024
 
 Work experience
 ======
