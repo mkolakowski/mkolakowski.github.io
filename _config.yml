@@ -214,7 +214,7 @@ collections:
 
 # Defaults
 defaults:
-   _reposts
+  # _reposts
   - scope:
       path: ""
       type: reposts
