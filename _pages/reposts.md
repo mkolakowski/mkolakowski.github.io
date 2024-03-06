@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: "Reposts"
-permalink: /Reposts/
+permalink: /reposts/
 author_profile: true
 ---
 
