@@ -201,7 +201,7 @@ collections:
   teaching:
     output: true
     permalink: /:collection/:path/
-  publications:
+  reposts:
     output: true
     permalink: /:collection/:path/
   portfolio:
@@ -241,10 +241,10 @@ defaults:
       author_profile: true
       share: true
       comments: true
-  # _publications
+  # _reposts
   - scope:
       path: ""
-      type: publications
+      type: reposts
     values:
       layout: single
       author_profile: true
