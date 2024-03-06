@@ -1,4 +1,13 @@
-# Storage Spaces - Slow Parity Performance
+---
+title: "Storage Spaces and Slow Parity Performance"
+collection: reposts
+permalink: /reposts/2020-05-05-storage-spaces-and-slow-parity-performance
+excerpt: 'Storage Spaces and Slow Parity Performance.'
+date: 2020-05-05
+venue: 'Storage Spaces war stories'
+paperurl: 'https://storagespaceswarstories.com/storage-spaces-and-slow-parity-performance'
+citation: 'Masiton, A. (2022, May 29). Storage spaces and slow parity performance - Storage Spaces war stories. Storage Spaces War Stories. https://storagespaceswarstories.com/storage-spaces-and-slow-parity-performance/'
+---
 
 Collected from my experience, here is how to deal with slow parity virtual disk performance in Microsoft Storage Spaces. In most cases, recreation will be required, but in some cases, you might get away with not having to dump all your data elsewhere. This article presumes a Storage Spaces array with no SSDs and no cache. The problem being solved here is HDDs in SS parity volumes providing 20 to 40 MB/s writes instead of multiples of disk’s rated write speeds (100 to 300 MB/s).
 
