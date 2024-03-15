@@ -1,5 +1,6 @@
 ---
 permalink: /
+layout: archive
 title: "I'm a homepage?"
 author_profile: true
 redirect_from: 
