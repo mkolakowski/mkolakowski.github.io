@@ -8,12 +8,15 @@ main:
 
   #- title: "Teaching"
   #  url: /teaching/    
-    
+
+  - title: "Blog Posts"
+    url: /year-archive/
+
   - title: "Reposts"
     url: /reposts/
         
-  - title: "Blog Posts"
-    url: /year-archive/
+  - title: "RPG Stuff"
+    url: /rpg/
     
   - title: "CV"
     url: /cv/
