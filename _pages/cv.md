@@ -19,6 +19,10 @@ Work experience
 ======
 * ## 2021-Present: Certified Systems Engineer
   * Intrust IT
+  * Intrust IT is a Cincinnati and Dayton IT support and cyber security partner that gets you and gets back to you. As a locally-owned small business we empathize with business owners and deliver service that makes our clients happy. Our company was founded in 1992 by Tim Rettig and ever since then we’ve been putting the “service” in “managed services.” As of 2019 we are an employee-owned company. By growing together as a business we inspire each other and our clients in a new way to do more and impact our region
+
+## | 2021 - Present | Intrust-IT | Certified Systems Engineer | 
+
 
 * ## 2017-2021: Associate Consultant, Systems Engineer I
   * Afidence
@@ -40,4 +44,4 @@ Skills
   
 # Service and leadership
 * ## Eagle Scout Award
-  * Earned in November of 2009
+  * Earned in 2009
