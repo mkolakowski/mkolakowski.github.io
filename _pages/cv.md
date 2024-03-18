@@ -39,6 +39,5 @@ Skills
 
   
 Service and leadership
-======
 * ## Eagle Scout Award
   * Earned in November of 2009
