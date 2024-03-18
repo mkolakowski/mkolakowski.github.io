@@ -11,8 +11,6 @@ tags:
 
 This blog contains powershell snippits that I find useful when working with exchange online
 
-
-# How to send email via PowerShell
 ## Direct Send
 - Place your Distro Groups name in place of <ins>"Kolakowski All"</ins>  (needs to be in quotes)
 - Change allusers to what you would like the distro groups email alias to be
