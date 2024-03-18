@@ -38,6 +38,6 @@ Skills
 * Skill 3
 
   
-Service and leadership
+# Service and leadership
 * ## Eagle Scout Award
   * Earned in November of 2009
