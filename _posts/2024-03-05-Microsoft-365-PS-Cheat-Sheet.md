@@ -1,6 +1,6 @@
 ---
 title: 'Microsoft 365 PS Cheat Sheet'
-collection: reposts
+collection: posts
 date: 2024-03-05
 permalink: /posts/2024-03-05-Microsoft-365-PS-Cheat-Sheet/
 tags:
