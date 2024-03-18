@@ -1,5 +1,6 @@
 ---
 title: 'Microsoft 365 PS Cheat Sheet'
+layout: archive
 collection: posts
 date: 2024-03-05
 permalink: /posts/2024/03/Microsoft-365-PS-Cheat-Sheet/
