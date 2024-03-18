@@ -9,9 +9,7 @@ tags:
   - Exchange
 ---
 
-# Microsoft Exchnage Powershell Cheat Sheet
 This blog contains powershell snippits that I find useful when working with Exchange on prem
-
 
 # 
 ## Pulls mailbox sizes and exports them to a CSV
