@@ -2,14 +2,12 @@
 title: "7 steps to migrate Windows 2012 R2 Domain Controllers to Windows Server 2019"
 collection: reposts
 permalink: /reposts/2022-06-20-7-steps-to-migrate-Windows-2012-R2-Domain-Controllers-to-Windows-Server-2019
-excerpt: '7 steps to migrate Windows 2012 R2 Domain Controllers to Windows Server 2019.'
+excerpt: 'One of the best ways to secure your systems is to make sure that Active Directory (AD) domain controllers (DCs) are running an up-to-date version of Windows Server. DCs are critical infrastructure because they manage the security and access to all your IT resources. If a DC is compromised, then you should consider your entire network compromised. DCs are high-value targets for hackers and you should take all reasonable steps to protect them.'
 date: 2022-06-20
 venue: 'Petri IT Knowledgebase'
 paperurl: 'https://petri.com/7-steps-to-migrate-windows-2012-r2-domain-controllers-to-windows-server-2019'
 citation: 'Smith, R. (2022, June 20). 7 steps to migrate Windows 2012 R2 Domain Controllers to Windows Server 2019 - Petri IT Knowledgebase. Petri IT Knowledgebase. https://petri.com/7-steps-to-migrate-windows-2012-r2-domain-controllers-to-windows-server-2019'
 ---
-
-# Migrate Windows 2012 R2 Domain Controllers to Windows Server 2019
 
 ![image](https://github.com/mkolakowski/mkolakowski.github.io/assets/31713098/a8c7278e-ab4f-42b6-8233-2285d31bf896)
 
