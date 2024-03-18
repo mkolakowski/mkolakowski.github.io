@@ -237,7 +237,7 @@ defaults:
   # _rpg
   - scope:
       path: ""
-      type: reposts
+      type: rpg
     values:
       layout: single
       author_profile: true
