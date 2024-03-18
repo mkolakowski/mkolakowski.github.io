@@ -1,8 +1,8 @@
 ---
-title: 'Microsoft Exchnage Powershell Cheat Sheet'
+title: 'Microsoft Exchange Powershell Cheat Sheet'
 collection: posts
 date: 2024-03-18
-permalink: /posts/2024-03-18-Microsoft-Exchnage-Powershell-Cheat-Sheet
+permalink: /posts/2024-03-18-Microsoft-Exchange-Powershell-Cheat-Sheet
 tags:
   - Microsoft Exchange
   - Powershell
@@ -10,7 +10,7 @@ tags:
 ---
 
 # Microsoft Exchnage Powershell Cheat Sheet
-This blog contains powershell snippits that I find useful when working with exchange on prem
+This blog contains powershell snippits that I find useful when working with Exchange on prem
 
 
 # 
