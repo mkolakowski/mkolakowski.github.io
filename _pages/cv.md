@@ -32,12 +32,19 @@ Work experience
 
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Critical Thinking/Problem solving
+* Powershell
+  * Querying Microsoft 365
+  * Windows scripting
+* Project Management
+* Microsoft 365
+  * Tenant Administration
+  * SharePoint Online Administration
+  * Teams Administration
+* Windows Desktop and Server Administration
+* Network Administration
+* Fortinet Firewalls
+* Ubiquiti Networking
 
 -------------------------------------------
 # Service and leadership
