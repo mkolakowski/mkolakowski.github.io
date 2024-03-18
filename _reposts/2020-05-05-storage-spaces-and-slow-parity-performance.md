@@ -2,7 +2,7 @@
 title: "Storage Spaces and Slow Parity Performance"
 collection: reposts
 permalink: /reposts/2020-05-05-storage-spaces-and-slow-parity-performance
-excerpt: 'Storage Spaces and Slow Parity Performance.'
+excerpt: 'Today, we will talk about Interleave sizes, Allocation Unit sizes and how they work together.'
 date: 2020-05-05
 venue: 'Storage Spaces war stories'
 paperurl: 'https://storagespaceswarstories.com/storage-spaces-and-slow-parity-performance'
