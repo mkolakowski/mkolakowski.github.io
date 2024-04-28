@@ -63,3 +63,80 @@ System=GBA
 Text=vicente
 Hope this helps someone
 ```
+
+
+---
+
+How to read Cheat codes:
+
+Memory Writes:
+```
+0XXXXXXX YYYYYYYY – 32bit write to [XXXXXXX + offset]
+1XXXXXXX 0000YYYY – 16bit write to [XXXXXXX + offset]
+2XXXXXXX 000000YY – 8bit write to [XXXXXXX + offset]
+```
+
+Conditional 32bit codes:
+```
+3XXXXXXX YYYYYYYY – Greater Than (YYYYYYYY > [XXXXXXX + offset])
+4XXXXXXX YYYYYYYY – Less Than (YYYYYYYY < [XXXXXXX + offset])
+5XXXXXXX YYYYYYYY – Equal To (YYYYYYYY == [XXXXXXX + offset])
+6XXXXXXX YYYYYYYY – Not Equal To (YYYYYYYY != [XXXXXXX + offset])
+```
+
+Conditional 16bit deref + write codes:
+```
+7XXXXXXX ZZZZYYYY – Greater Than
+8XXXXXXX ZZZZYYYY – Less Than
+9XXXXXXX ZZZZYYYY – Equal To
+AXXXXXXX ZZZZYYYY – Not Equal To
+```
+
+Offset Codes:
+```
+BXXXXXXX 00000000 – offset = *(xxx)
+D3000000 XXXXXXXX – set offset to immediate value
+DC000000 XXXXXXXX – Adds an value to the current offset
+```
+
+Loop Code:
+```
+C0000000 YYYYYYYY – Sets the repeat value to ‘YYYYYYYY’
+D1000000 00000000 – Loop execute
+D0000000 00000000 – Terminator code
+```
+
+Data Register Codes:
+```
+D4000000 XXXXXXXX – Adds XXXXXXXX to the data register
+D5000000 XXXXXXXX – Sets the data register to XXXXXXXX
+D6000000 XXXXXXXX – (32bit) [XXXXXXXX+offset] = data ; offset += 4
+D7000000 XXXXXXXX – (16bit) [XXXXXXXX+offset] = data & 0xffff ; offset += 2
+D8000000 XXXXXXXX – (8bit) [XXXXXXXX+offset] = data & 0xff ; offset++
+D9000000 XXXXXXXX – (32bit) sets data to [XXXXXXXX+offset]
+DA000000 XXXXXXXX – (16bit) sets data to [XXXXXXXX+offset] & 0xffff
+DB000000 XXXXXXXX – (8bit) sets data to [XXXXXXXX+offset] & 0xff
+```
+
+Special Codes:
+```
+DD000000 XXXXXXXX – if KEYPAD has value XXXXXXXX execute next block
+```
+
+Special Keypad Code
+As for the Special KEYPAD cheat code, the keypad value can be any combination of the following:
+
+```
+0x1     A
+0x2     B
+0x4     Select
+0x8     Start
+0x10    Right
+0x20    Left
+0x40    Up
+0x80    Down
+0x100   R
+0x200   L
+0x400   X
+0x800   Y
+```
