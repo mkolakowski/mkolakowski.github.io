@@ -1,5 +1,5 @@
 ---
-title: 'SharePoint Online Disable Sync Button'
+title: 'How to disable SharePoint and OneDrive Sync Buttons'
 collection: posts
 date: 2024-05-08
 permalink: /posts/2024-05-08-SharePoint-Online-Disable-Sync-Button
@@ -9,8 +9,6 @@ tags:
   - Office 365
   - OneDrive
 ---
-
-# How to disable SharePoint and OneDrive Sync Buttons
 
 Need to make this go away?
 ![image](https://github.com/mkolakowski/mkolakowski.github.io/assets/31713098/4700f11f-fca5-4606-8db4-6d765abacecc)
