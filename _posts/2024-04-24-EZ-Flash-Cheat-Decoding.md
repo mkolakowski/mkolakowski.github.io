@@ -9,12 +9,10 @@ tags:
   - EZ-Flash
 ---
 
+For anyone in 2023 who wants to understand how the conversion works
 
 https://www.reddit.com/r/Gameboy/comments/hcq2g6/ezflash_omega_cheat_system_tutorial/k55cvss/
 From Reddit
-
-
-For anyone in 2023 who wants to understand how the conversion works...
 
 Here is the example code given by OP:
 ```
