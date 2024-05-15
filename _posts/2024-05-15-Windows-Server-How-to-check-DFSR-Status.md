@@ -1,7 +1,7 @@
 ---
 title: 'Windows Server : How to check DFSR Status'
 collection: posts
-date: 2024-03-05
+date: 2024-05-15
 permalink: /posts/2024-05-15-Windows-Server-How-to-check-DFSR-Status
 tags:
   - Microsoft
