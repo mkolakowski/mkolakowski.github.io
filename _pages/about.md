@@ -11,4 +11,4 @@ redirect_from:
 Im going to put somthing here one of these days...
 
 
-Here is a link to my Finance Forcasting Template: ([Forecast Template.xlsx](https://github.com/72317a73-4d65-4675-b612-6acd9705c841))
+Here is a link to my Finance Forcasting Template: ([Forecast Template.xlsx](https://mkolakowski.github.io/mkolakowski.github.io/files/Forecast%20Template.xlsx))
