@@ -2,8 +2,7 @@
 title: "Migrate DHCP scope(s) to windows server 2022"
 collection: reposts
 permalink: /reposts/2022-06-29-Migrate-DHCP-scopes-to-windows-server-2022
-excerpt: 'In this post, I will demonstrate how to change the IP address on a domain controller.
-.'
+excerpt: 'If you have a lot of DHCP scopes, options, or reservations, then manually creating them on your new DHCP servers can be a both a time consuming and tedious process. If only there was an easier way?'
 date: 2022-06-29
 venue: 'PeteNetLive'
 paperurl: 'https://www.petenetlive.com/kb/article/0001792'
