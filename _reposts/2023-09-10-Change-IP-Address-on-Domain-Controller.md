@@ -10,12 +10,7 @@ paperurl: 'https://activedirectorypro.com/change-ip-address-on-domain-controller
 citation: Allen, R., & Allen, R. (2023, September 10). Change IP address on domain Controller. Active Directory Pro. https://activedirectorypro.com/change-ip-address-on-domain-controller/
 ---
 
-# Change IP Address on Domain Controller
-Last Updated: September 10, 2023 by Robert Allen
-
 ![image](https://github.com/mkolakowski/mkolakowski.github.io/assets/31713098/087235e2-8c81-409f-87d3-a1f86ad6d015)
-
-
 
 In this post, I will demonstrate how to change the IP address on a domain controller.
 
