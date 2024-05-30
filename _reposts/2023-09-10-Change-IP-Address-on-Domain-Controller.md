@@ -13,7 +13,8 @@ citation: Allen, R., & Allen, R. (2023, September 10). Change IP address on doma
 # Change IP Address on Domain Controller
 Last Updated: September 10, 2023 by Robert Allen
 
-![image](https://github.com/mkolakowski/KB/assets/31713098/0652e954-0e6e-468c-9785-ecc4d1b29fa8)
+![image](https://github.com/mkolakowski/mkolakowski.github.io/assets/31713098/087235e2-8c81-409f-87d3-a1f86ad6d015)
+
 
 
 In this post, I will demonstrate how to change the IP address on a domain controller.
@@ -45,7 +46,7 @@ netdom query fsmo
 ```
 Below you can see all my FSMO roles are on DC1.
 
-![image](https://github.com/mkolakowski/KB/assets/31713098/e8e7b226-b063-4f17-9dfc-147699267e68)
+![image](https://github.com/mkolakowski/mkolakowski.github.io/assets/31713098/57d867d0-6c75-423b-ad7e-5c76923f786d)
 
 To help avoid disruption to authentication services you could move the FSMO roles to another domain controller that is on the same site. Keep in mind you would need to move any services that are manually configured to the server.
 
@@ -62,7 +63,8 @@ Get-WindowsFeature | Where-Object {$_. installstate -eq "installed"}
 ```
 Below you can see my DC2 server has some critical services running on it including DHCP and DNS. I’ll need to consider this when changing IP addresses.
 
-![image](https://github.com/mkolakowski/KB/assets/31713098/a6017bf7-a7c1-4041-9b8a-2640faa37a1f)
+![image](https://github.com/mkolakowski/mkolakowski.github.io/assets/31713098/f72071b1-50f7-4b51-b63c-26a47ffa7c89)
+
 
 ### Find Devices Pointing to the Domain Controller with Wireshark
 Wireshark can help you identify what systems are pointing to your domain controller for various services like DNS, DHCP, and so on. This might be the most important pre-change step.
@@ -75,7 +77,8 @@ Useful Wireshark filters:
 - DCERPC
 Here is an example:
 
-![image](https://github.com/mkolakowski/KB/assets/31713098/8fb86a38-4bf7-492b-82f9-0883b718cfbc)
+![image](https://github.com/mkolakowski/mkolakowski.github.io/assets/31713098/ced6552e-c611-479d-9e62-d388fa024b02)
+
 
 The packet capture shows that system 192.168.100.22 is using DC2 for DNS. I’ve done a large migration of domain controllers before and used Wireshark to help identify systems that are still pointing to old domain controllers. From experience, you will probably be surprised at how many systems are hardcoded to your DCS.
 
@@ -96,13 +99,15 @@ The best practice analyzer can find configuration issues according to Microsoft 
 
 Here is a scan from my DC2.
 
-![image](https://github.com/mkolakowski/KB/assets/31713098/9ad7d177-89ab-4d68-a9a6-b60a9b0ef93c)
+![image](https://github.com/mkolakowski/mkolakowski.github.io/assets/31713098/5a93e476-31d5-4c25-ae69-d73b9e83d893)
+
 
 I’ve got a warning that the loopback address is not included on the ethernet adapter settings. The best practice is to point the preferred DNS server to another DNS server (not itself).
 
 Here is an example of how it should be configured:
 
-![image](https://github.com/mkolakowski/KB/assets/31713098/a0a8e7eb-6d89-4ae2-bbad-3fcc6fc40781)
+![image](https://github.com/mkolakowski/mkolakowski.github.io/assets/31713098/ddea61a8-e68d-41bb-9a3e-12a19195b4b5)
+
 
 My DC2 IP address is 192.168.100.11. You can see I set the preferred DNS to another domain controller (DC1) and the alternate is set to the loopback address. This is Microsoft’s best practice.
 
