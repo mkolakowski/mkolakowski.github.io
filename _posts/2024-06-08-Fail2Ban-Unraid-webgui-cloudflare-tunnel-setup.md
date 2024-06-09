@@ -1,7 +1,7 @@
 ---
 title: 'Fail2Ban unraid-webgui cloudflare tunnel setup'
 collection: posts
-date: 2024-03-05
+date: 2024-06-08
 permalink: /posts/2024-06-08-Fail2Ban-Unraid-webgui-cloudflare-tunnel-setup
 tags:
   - unraid
