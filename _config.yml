@@ -210,7 +210,9 @@ collections:
   rpg:
     output: true
     permalink: /:collection/:path/
-
+  powershell:
+    output: true
+    permalink: /:collection/:path/
 
 # Defaults
 defaults:
