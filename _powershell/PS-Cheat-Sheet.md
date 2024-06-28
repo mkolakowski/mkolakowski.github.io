@@ -1,8 +1,8 @@
 ---
 title: 'Microsoft 365 PS Cheat Sheet'
-collection: posts
+collection: powershell
 date: 2024-03-05
-permalink: /posts/2024-03-05-Microsoft-365-PS-Cheat-Sheet
+permalink: /posts/PS-Cheat-Sheet
 tags:
   - Microsoft 365
   - Powershell
