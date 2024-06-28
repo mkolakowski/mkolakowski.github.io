@@ -18,6 +18,9 @@ main:
   - title: "RPG Stuff"
     url: /rpg/
     
+  - title: "Powershell"
+    url: /powershell/
+    
   - title: "CV"
     url: /cv/
     
