@@ -9,8 +9,7 @@ tags:
   - Office 365
 ---
 
-This blog contains powershell snippits that I find useful
-
+This script will output a csv of aliases for all Distrobution Lists and Mailboxes (regualr and shared)
 
 ```
 # Install the ExchangeOnlineManagement module if not already installed
