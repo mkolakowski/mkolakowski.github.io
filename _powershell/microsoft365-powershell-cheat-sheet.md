@@ -16,7 +16,7 @@ This blog contains powershell snippits that I find useful
 #### [- Mailbox]([url](https://github.com/mkolakowski/mkolakowski.github.io/edit/main/_powershell/PS-Cheat-Sheet.md#mailbox))
 #### [- Public Folders]([url](https://github.com/mkolakowski/mkolakowski.github.io/edit/main/_powershell/PS-Cheat-Sheet.md#public-folders))
 #### [- Teams]([url](https://github.com/mkolakowski/mkolakowski.github.io/edit/main/_powershell/PS-Cheat-Sheet.md#teams))
-#### [- Tenant Clean Up]([url](https://github.com/mkolakowski/mkolakowski.github.io/edit/main/_powershell/PS-Cheat-Sheet.md#tenant-clean-up-run-with-catution))
+#### [Tenant Clean Up]([url](https://github.com/mkolakowski/mkolakowski.github.io/edit/main/_powershell/PS-Cheat-Sheet.md#tenant-clean-up-run-with-catution))
 
 # Distribution Lists
 
