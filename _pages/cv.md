@@ -43,8 +43,8 @@ Skills
   * Teams Administration
 * Windows Desktop and Server Administration
 * Network Administration
-* Fortinet Firewalls
-* Ubiquiti Networking
+  * Fortinet Firewalls
+  * Ubiquiti Networking
 
 -------------------------------------------
 # Service and leadership
