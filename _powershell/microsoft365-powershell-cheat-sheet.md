@@ -2,7 +2,7 @@
 title: 'Microsoft 365 PS Cheat Sheet'
 collection: powershell
 date: 2024-03-05
-permalink: /posts/PS-Cheat-Sheet
+permalink: /posts/microsoft365-powershell-cheat-sheet
 tags:
   - Microsoft 365
   - Powershell
@@ -11,16 +11,15 @@ tags:
 
 This blog contains powershell snippits that I find useful
 
-## Direct Send
-- In this example we are creating the <ins>"Kolakowski All"</ins> Distro Group with an alias of allusers
-- Place your Distro Groups name in place of <ins>"Kolakowski All"</ins>  (needs to be in quotes)
-- Change allusers to what you would like the distro groups email alias to be
-  - Note: do not enter the domain here, M365 will choose the default domain
-```
-New-DistributionGroup -Name "Kolakowski All" -Alias allusers;
-```
+# Index
+- [Distribution Lists]([url](https://github.com/mkolakowski/mkolakowski.github.io/edit/main/_powershell/PS-Cheat-Sheet.md#distribution-lists))
+- [Mailbox]([url](https://github.com/mkolakowski/mkolakowski.github.io/edit/main/_powershell/PS-Cheat-Sheet.md#mailbox))
+- [Public Folders]([url](https://github.com/mkolakowski/mkolakowski.github.io/edit/main/_powershell/PS-Cheat-Sheet.md#public-folders))
+- [Teams]([url](https://github.com/mkolakowski/mkolakowski.github.io/edit/main/_powershell/PS-Cheat-Sheet.md#teams))
+- [Tenant Clean Up]([url](https://github.com/mkolakowski/mkolakowski.github.io/edit/main/_powershell/PS-Cheat-Sheet.md#tenant-clean-up-run-with-catution))
 
 # Distribution Lists
+
 ## Distro Creation
 - In this example we are creating the <ins>"Kolakowski All"</ins> Distro Group with an alias of allusers
 - Place your Distro Groups name in place of <ins>"Kolakowski All"</ins> (needs to be in quotes)
