@@ -36,7 +36,8 @@ Post Template
    ![image](https://github.com/user-attachments/assets/0ad2c58c-a4e9-40ae-b76f-8d48976d10ba)
 
 8. Under Properties, click Configure
+
    ![image](https://github.com/user-attachments/assets/768d0e67-4cb1-4927-b756-78a38da61110)
 
-9. Under the Advanced Tab, Disable each property with the name of "Virtual Machine Queues"
+10. Under the Advanced Tab, Disable each property with the name of "Virtual Machine Queues"
    ![image](https://github.com/user-attachments/assets/1550058f-76a8-4b1f-94ee-3af9a2ae00e6)
