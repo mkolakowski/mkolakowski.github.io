@@ -11,7 +11,7 @@ tags:
 
 
 
-
+Below is a script that can be used to locate a single users Immutable ID
 
 ```
 # Import the AzureAD module
