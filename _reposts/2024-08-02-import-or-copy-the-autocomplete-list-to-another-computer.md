@@ -25,8 +25,8 @@ If you don't know what type of account you have, select **File > Account Setting
 ### Step 1: Export the AutoComplete mailbox message
 
 1. Exit Outlook, and then close Outlook on the web on all workstations that are connected to your mailbox.
-2. Download and install MFCMAPI from http://mfcmapi.codeplex.com.
-3. Run mfcmapi.exe.
+2. Download and install MFCMAPI from [http://mfcmapi.codeplex.com](https://github.com/microsoft/mfcmapi/releases).
+3. Run [mfcmapi.exe]([url](https://github.com/mkolakowski/mkolakowski.github.io/blob/ccb147c51beae5a22f8c4f8e6f5b164d5128ff65/files/MFCMAPI.exe.24.0.24100.06.zip)).
 4. On the **Session** menu, select **Logon**.
 5. If you are prompted for a profile, select the desired profile name, and then click **OK**.
 6. In the top pane, locate the line that corresponds to your mailbox, and then double-click it.
