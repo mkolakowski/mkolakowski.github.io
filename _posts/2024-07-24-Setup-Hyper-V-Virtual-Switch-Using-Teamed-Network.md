@@ -10,6 +10,7 @@ tags:
   - Server 2022
 ---
 
+In this post we will show how to setup network teaming in a hyper v switch
 
 ## Create Network Team
 1. Open Windows Server Manager and click on Local Server then NIC Teaming
