@@ -10,7 +10,7 @@ tags:
   - Server 2022
 ---
 
-Post Template
+
 ## Create Network Team
 1. Open Windows Server Manager and click on Local Server then NIC Teaming
 
