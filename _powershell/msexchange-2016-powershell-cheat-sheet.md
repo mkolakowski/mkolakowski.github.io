@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Exchange 2016 : Cheat Sheet'
+title: 'Exchange 2016 : Cheat Sheet'
 collection: powershell
 date: 2024-03-05
 permalink: /posts/msexchange-2016-powershell-cheat-sheet
