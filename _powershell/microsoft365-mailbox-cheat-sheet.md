@@ -1,7 +1,6 @@
 ---
 title: 'Microsoft 365 : Mailbox Cheat Sheet'
 collection: powershell
-date: 2024-03-05
 permalink: /powershell/microsoft365-mailbox-cheat-sheet
 tags:
   - Microsoft 365
