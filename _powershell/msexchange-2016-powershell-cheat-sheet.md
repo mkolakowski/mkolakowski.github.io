@@ -9,6 +9,7 @@ tags:
   - Office 365
 ---
 
+This page will contain a list of Powershell snippits I find useful when working with MS Exchange servers
 
 ### Disable local Autodiscover (non-dns)
 - Set-ClientAccessService: This cmdlet is used to configure settings for the Client Access services on a Mailbox server.
