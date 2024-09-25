@@ -2,7 +2,7 @@
 title: 'Exchange 2016 : Cheat Sheet'
 collection: powershell
 date: 2024-03-05
-permalink: /posts/msexchange-2016-powershell-cheat-sheet
+permalink: /powershell/msexchange-2016-powershell-cheat-sheet
 tags:
   - Microsoft 365
   - Powershell
