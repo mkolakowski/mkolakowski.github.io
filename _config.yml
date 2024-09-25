@@ -246,14 +246,14 @@ defaults:
       share: true
       comments: true
   # _powershell
-  - scope:
-      path: ""
-      type: powershell
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
+#  - scope:
+#      path: ""
+#      type: powershell
+#    values:
+#      layout: single
+#      author_profile: true
+#      share: true
+#      comments: true
       
 # Sass/SCSS
 sass:
