@@ -1,7 +1,6 @@
 ---
 title: 'Microsoft 365 : Powershell Cheat Sheet Index'
 collection: powershell
-date: 2024-03-05
 permalink: /powershell/microsoft365-powershell-cheat-sheet-index
 tags:
   - Microsoft 365
