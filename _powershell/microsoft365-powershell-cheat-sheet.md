@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft 365 PS Cheat Sheet'
+title: 'Microsoft 365 : Powershell Cheat Sheet'
 collection: powershell
 date: 2024-03-05
 permalink: /posts/microsoft365-powershell-cheat-sheet
