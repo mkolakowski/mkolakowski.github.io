@@ -1,7 +1,6 @@
 ---
 title: 'Microsoft 365 : Public Folder Cheat Sheet'
 collection: powershell
-date: 2024-03-05
 permalink: /powershell/microsoft365-public-folder-cheat-sheet
 tags:
   - Microsoft 365
