@@ -2,7 +2,7 @@
 title: 'Microsoft 365 PS - Check MFA Enrollment Status'
 collection: powershell
 date: 2024-09-25
-permalink: /posts/microsoft365-powershell-check-mfa-status
+permalink: /_powershell/microsoft365-powershell-check-mfa-status
 tags:
   - Microsoft 365
   - Powershell
