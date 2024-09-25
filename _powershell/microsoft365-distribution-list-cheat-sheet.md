@@ -1,7 +1,6 @@
 ---
 title: 'Microsoft 365 : Distribution List Cheat Sheet'
 collection: powershell
-date: 2024-03-05
 permalink: /powershell/microsoft365-distribution-list-cheat-sheet
 tags:
   - Microsoft 365
