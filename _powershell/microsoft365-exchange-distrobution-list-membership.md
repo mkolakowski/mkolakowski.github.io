@@ -1,7 +1,7 @@
 ---
-title: 'Microsoft 365 : Exchange Online : List Distrobution Membership'
+title: 'Microsoft 365 : Exchange Online : Distrobution List Membership'
 collection: powershell
-permalink: /posts/microsoft365-exchange-list-distrobution-membership
+permalink: /posts/microsoft365-exchange-distrobution-list-membership
 tags:
   - Microsoft 365
   - Powershell
