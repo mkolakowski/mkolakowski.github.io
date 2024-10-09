@@ -8,11 +8,11 @@ tags:
   - Office 365
 ---
 
-This script will output a csv of aliases for all Distrobution Lists and Mailboxes (regualr and shared)
+This script will output a csv of the membership for all Distrobution Lists
 
 ```
+#Variable : CsvPath : Where the CSV is saved
 $CsvPath = "C:\powershell\m365-reports\DistributionListMembers.csv"
-
 
 # Import the Exchange Online PowerShell module
 Import-Module ExchangeOnlineManagement
