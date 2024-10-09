@@ -1,7 +1,7 @@
 ---
 title: 'Microsoft 365 : Security : Check MFA Enrollment Status'
 collection: powershell
-permalink: /powershell/microsoft365-powershell-check-mfa-status
+permalink: /powershell/microsoft365-security-powershell-check-mfa-status
 tags:
   - Microsoft 365
   - Powershell
