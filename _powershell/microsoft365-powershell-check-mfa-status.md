@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft 365 : Check MFA Enrollment Status'
+title: 'Microsoft 365 : Security : Check MFA Enrollment Status'
 collection: powershell
 permalink: /powershell/microsoft365-powershell-check-mfa-status
 tags:
