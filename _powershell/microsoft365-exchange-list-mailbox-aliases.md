@@ -1,7 +1,7 @@
 ---
 title: 'Microsoft 365 : Exchange Online : List All Aliases'
 collection: powershell
-permalink: /posts/microsoft365-exchange-list-all-aliases
+permalink: /posts/microsoft365-exchange-list-mailbox-aliases
 tags:
   - Microsoft 365
   - Powershell
