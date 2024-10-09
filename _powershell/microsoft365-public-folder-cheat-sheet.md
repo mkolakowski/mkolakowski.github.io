@@ -1,7 +1,7 @@
 ---
-title: 'Microsoft 365 : Public Folder Cheat Sheet'
+title: 'Microsoft 365 : Exchange Online : Public Folder Cheat Sheet'
 collection: powershell
-permalink: /powershell/microsoft365-public-folder-cheat-sheet
+permalink: /powershell/microsoft365-exchange-public-folder-cheat-sheet
 tags:
   - Microsoft 365
   - Powershell
