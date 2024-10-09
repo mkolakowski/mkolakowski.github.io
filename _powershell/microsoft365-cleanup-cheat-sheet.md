@@ -1,7 +1,7 @@
 ---
-title: 'Microsoft 365 : Cleanup Cheat Sheet'
+title: 'Microsoft 365 : Security : Cleanup Cheat Sheet'
 collection: powershell
-permalink: /powershell/microsoft365-cleanup-cheat-sheet
+permalink: /powershell/microsoft365-security-cleanup-cheat-sheet
 tags:
   - Microsoft 365
   - Powershell
