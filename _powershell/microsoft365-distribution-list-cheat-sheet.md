@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft 365 : Distribution List Cheat Sheet'
+title: 'Microsoft 365 : Exchange Online : Distribution List Cheat Sheet'
 collection: powershell
 permalink: /powershell/microsoft365-distribution-list-cheat-sheet
 tags:
