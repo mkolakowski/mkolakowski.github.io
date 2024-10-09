@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft 365 : Teams Cheat Sheet'
+title: 'Microsoft 365 : Teams : Cheat Sheet'
 collection: powershell
 permalink: /powershell/microsoft365-teams-cheat-sheet-index
 tags:
