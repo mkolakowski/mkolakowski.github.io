@@ -1,7 +1,7 @@
 ---
 title: 'Microsoft 365 : Exchange Online : Distribution List Cheat Sheet'
 collection: powershell
-permalink: /powershell/microsoft365-distribution-list-cheat-sheet
+permalink: /powershell/microsoft365-exchange-distribution-list-cheat-sheet
 tags:
   - Microsoft 365
   - Powershell
