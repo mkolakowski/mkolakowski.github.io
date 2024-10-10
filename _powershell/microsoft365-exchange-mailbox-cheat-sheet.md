@@ -1,7 +1,7 @@
 ---
-title: 'Microsoft 365 : Exchange Online : Mailbox Cheat Sheet'
+title: 'Microsoft 365 : Exchange Online : Mailbox Administration'
 collection: powershell
-permalink: /powershell/microsoft365-exchange-mailbox-cheat-sheet
+permalink: /powershell/microsoft365-exchange-mailbox-administration
 tags:
   - Microsoft 365
   - Powershell
