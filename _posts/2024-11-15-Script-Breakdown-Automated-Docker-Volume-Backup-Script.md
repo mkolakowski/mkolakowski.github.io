@@ -144,6 +144,9 @@ fi
 # Final Thoughts 
 I hope that this detailed breakdown should help the reader understand each step of the script and its purpose. 
 
+# Changelog
+- 2024-11-15: Inital creation
+
 # Complete Script
 ```
 #!/bin/bash
