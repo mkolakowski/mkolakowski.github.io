@@ -27,13 +27,9 @@ The script performs the following steps:
 The script begins by defining variables for paths, timestamps, and remote storage details.
 
  - `DOCKER_VOLUMES`: Path where Docker volumes are stored (e.g., `/portainer/volumes`).
-
  - `BACKUP_ROOT`: Root directory where backup files will be stored (e.g., `/portainer/backups`).
-
  - `BACKUP_DIR`: Directory for today's backups, generated based on the current date (e.g., `/portainer/backups/2024-11-15`).
-
  - `TIMESTAMP`: Current timestamp for naming backup files (e.g., `2024-11-15_10-30-00`).
-
  - `REMOTE_ROOT`: Remote location for backups using rclone (e.g., `b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes`).
 
 
