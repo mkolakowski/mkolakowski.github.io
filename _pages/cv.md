@@ -11,54 +11,42 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* ## Western Govonors University
+  * B.S. Cybersecurity and Information Assurance
+  * Graduated April 2024
+
+-------------------------------------------
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* ## 2021 - Present | Intrust-IT | Certified Systems Engineer
+  * Intrust IT is a Cincinnati and Dayton IT support and cyber security partner that gets you and gets back to you. As a locally-owned small business we empathize with business owners and deliver service that makes our clients happy. Our company was founded in 1992 by Tim Rettig and ever since then we’ve been putting the “service” in “managed services.” As of 2019 we are an employee-owned company. By growing together as a business we inspire each other and our clients in a new way to do more and impact our region
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* ## 2017 - 2021 | Afidence | Associate Consultant, Systems Engineer I
+  * Afidence is a technology consulting and services firm launched in 2010 with a goal to earn trusted relationships by surrounding our clients with clear, transparent, and honest solutions unmatched in the IT Industry. As an IT advocate and business provider, Afidence serves over 80 active clients in the Cincinnati-Dayton region, extending into 30 states and 15 countries. Headquartered in Mason, Ohio, we also maintain support offices in Miamisburg, Ohio.
 
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
+* ## 2014 - 2017 | CompuCom | Desktop Support Specialist
+  * Provided remote support for Synchrony Financials work from home employees as well as supported and built the Desktop Support Team SharePoint. Hands and feet for the local business center data center. Previously worked this position under Robert Half, was invited to come back by the program management due to the quality of work and level of customer service skills shown. Also, the primary support contact for Synchrony Financial regarding remote user issues. 
+
+-------------------------------------------
+
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Critical Thinking/Problem solving
+* Powershell
+  * Querying Microsoft 365
+  * Windows scripting
+* Project Management
+* Microsoft 365
+  * Tenant Administration
+  * SharePoint Online Administration
+  * Teams Administration
+* Windows Desktop and Server Administration
+* Network Administration
+  * Fortinet Firewalls
+  * Ubiquiti Networking
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+-------------------------------------------
+# Service and leadership
+* ## Eagle Scout Award
+  * Earned in 2009
