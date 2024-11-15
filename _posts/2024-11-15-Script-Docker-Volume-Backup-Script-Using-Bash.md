@@ -37,7 +37,7 @@ REMOTE_ROOT="b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes"
 # -- Variables End--
 ```
 
-## Logic : Check if directories exist
+### Logic : Check if directories exist
 Pretty straight forward, this if statement ensures that the folder we are saving the backups to exists and creates the folder if it does not.
 ```
 # Check if backup directory exists, create if not
@@ -49,7 +49,7 @@ fi
 CONTAINERS=$(docker ps --format "{{.Names}}")
 ```
 
-## Logic : Listing containers
+### Logic : Listing containers
 Another straight forward section, we use docker commands to list all containers in the system
 ```
 # Get a list of all running containers
@@ -134,7 +134,7 @@ for CONTAINER_NAME in $CONTAINERS; do
 done #-End of Container loop
 ```
 
-## Cloud Upload
+### Cloud Upload
 The script uses rclone to upload a copy of the backed up files to a rclone supported destination.
 ```
 
@@ -144,7 +144,7 @@ echo "Upload Completed"
 ```
 
 ## Final Thoughts
-Hopefully the breakdown helps you better understand how this script works and can be modified for your usecase
+Hopefully the breakdown helps you better understand how this script works and can be modified for your usecase.
 
 # Complete Script
 ```
