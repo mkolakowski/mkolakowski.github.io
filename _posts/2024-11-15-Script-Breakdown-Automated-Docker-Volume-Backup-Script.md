@@ -145,7 +145,7 @@ fi
 I hope that this detailed breakdown should help the reader understand each step of the script and its purpose. 
 
 # Changelog
-- 2024-11-15: Inital creation
+- 2024-11-15: Inital posting and documentation creation
 
 # Complete Script
 ```
