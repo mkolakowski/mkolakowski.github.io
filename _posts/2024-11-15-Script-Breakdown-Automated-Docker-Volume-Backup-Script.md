@@ -52,9 +52,11 @@ CONTAINERS=$(docker ps --format "{{.Names}}")
 
 
 ## Function: `backup_volume`
+
 ### Parameters:
 - `container_name`: Name of the container being processed.
 - `volume_path`: Path to the Docker volume.
+
 ### Process:
 - Generates a unique backup file name based on the container name, volume name, and timestamp.
 - Compresses the volume contents into a .zip file.
