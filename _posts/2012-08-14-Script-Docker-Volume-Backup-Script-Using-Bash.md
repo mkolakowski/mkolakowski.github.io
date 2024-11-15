@@ -1,7 +1,7 @@
 ---
-title: 'Docker Volume Backup Script in Bash'
+title: 'Script : Docker Volume Backup Script in Bash'
 date: 2024-11-15
-permalink: /posts/2012/08/blog-post-1/
+permalink: /posts/2024/11/Script-Docker-Volume-Backup-Script-Using-Bash/
 tags:
   - Docker
   - Linux
