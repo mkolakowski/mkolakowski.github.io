@@ -68,6 +68,7 @@ We also have a few variables that are isolated to this function:
 - $volume_name : The name of the folder is pulled from the full volume path. EX: "/portainer/volumes/tautulli/data" would result in "data"
 - $backup_file : Combines the above vatiables to create the filename of the backup zip
 
+The if logic statement checks if the zip command was successful by comparing the output of the last command (zip) using $? to 0 and outputs a message to the console.
 ```
 # Function to back up a volume
 backup_volume() {
@@ -89,6 +90,18 @@ backup_volume() {
 ```
 
 ### Container processing loop
+
+This loop contains the logic that is used to look though the continers discovered earlier and then determine if the docker volumes are in the right location.
+
+`VOLUMES=$(docker inspect --format='{{ range .Mounts }}{{ .Source }} {{ end }}' "$CONTAINER_NAME")`
+This line takes the container from the for loop and then saves an array of the containers attached volumes.
+
+`docker stop "$CONTAINER_NAME"`
+Stops the currently targeted container.
+
+The script will loop though any containers that have been saved to $VOLUMES.
+The If statement determines if the docker volume is a subfolder of the allowed path and then invokes the backup_volume function.
+Once fully looped though all volumes, the container is started back up.
 
 ```
 # Loop through each container and check its volumes
@@ -122,7 +135,7 @@ done #-End of Container loop
 ```
 
 ## Cloud Upload
-
+The script uses rclone to upload a copy of the backed up files to a rclone supported destination.
 ```
 
 # Uploads any data in the backup root to backblaze
