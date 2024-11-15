@@ -21,23 +21,23 @@ The script performs the following steps:
 6. Uploads the backup files to a remote storage location.
 
 
-## Script Breakdown
+# Script Breakdown
 
-### Variables
+## Variables
 The script begins by defining variables for paths, timestamps, and remote storage details.
 
-`DOCKER_VOLUMES` : Path where Docker volumes are stored (e.g., /portainer/volumes).
+ - `DOCKER_VOLUMES`: Path where Docker volumes are stored (e.g., `/portainer/volumes`).
 
-`BACKUP_ROOT` : Root directory where backup files will be stored (e.g., /portainer/backups).
+ - `BACKUP_ROOT`: Root directory where backup files will be stored (e.g., `/portainer/backups`).
 
-`BACKUP_DIR` : Directory for today's backups, generated based on the current date (e.g., /portainer/backups/2024-11-15).
+ - `BACKUP_DIR`: Directory for today's backups, generated based on the current date (e.g., `/portainer/backups/2024-11-15`).
 
-`TIMESTAMP` : Current timestamp for naming backup files (e.g., 2024-11-15_10-30-00).
+ - `TIMESTAMP`: Current timestamp for naming backup files (e.g., `2024-11-15_10-30-00`).
 
-`REMOTE_ROOT` : Remote location for backups using rclone (e.g., b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes).
+ - `REMOTE_ROOT`: Remote location for backups using rclone (e.g., `b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes`).
 
 
-### Directory Check and Creation
+## Directory Check and Creation
 - Checks if the directory for today's backups exists.
 - Creates the directory if it does not.
 ```
@@ -47,18 +47,18 @@ fi
 ```
 
 
-### Container List
+## Container List
 - Retrieves a list of all running Docker containers by their names.
 ```
 CONTAINERS=$(docker ps --format "{{.Names}}")
 ```
 
 
-### Function: `backup_volume`
-#### Parameters:
-- container_name: Name of the container being processed.
-- volume_path: Path to the Docker volume.
-#### Process:
+## Function: `backup_volume`
+### Parameters:
+- `container_name`: Name of the container being processed.
+- `volume_path`: Path to the Docker volume.
+### Process:
 - Generates a unique backup file name based on the container name, volume name, and timestamp.
 - Compresses the volume contents into a .zip file.
 - Logs the success or failure of the operation.
@@ -81,12 +81,12 @@ backup_volume() {
 ```
 
 
-### Main Loop: Container Processing
+## Main Loop: Container Processing
 
-#### Steps for Each Container:
+### Steps for Each Container:
 1. Get Volumes: Fetches attached volumes for the container.
 2. Stop Container: Stops the container to ensure data consistency during backup.
-3. Backup Volumes: Iterates through volumes and backs up those matching the DOCKER_VOLUMES path.
+3. Backup Volumes: Iterates through volumes and backs up those matching the `DOCKER_VOLUMES` path.
 4. Restart Container: Starts the container after backup completion.
 5. Status Output: Displays the completion of the backup process for the container.
 ```
@@ -111,37 +111,37 @@ for CONTAINER_NAME in $CONTAINERS; do
 done
 ```
 
-### Remote Upload
-- rclone copy: Uploads the backup files from the local backup root directory to the defined remote location.
+## Remote Upload
+- Rclone copy: Uploads the backup files from the local backup root directory to the defined remote location.
 - Logs the completion of the upload process.
 ```
 rclone copy --stats-one-line $BACKUP_ROOT $REMOTE_ROOT
 echo "Upload Completed"
 ```
 
-### Key Features
+## Key Features
 1. Volume Filtering:
-   - Only backs up volumes within the DOCKER_VOLUMES directory.
+   - Only backs up volumes within the `DOCKER_VOLUMES` directory.
 2. Data Consistency:
    - Containers are stopped before their volumes are backed up.
 3. Automated Upload:
    - Uses rclone to securely transfer backups to a remote storage location.
 
-## Usage
+# Usage
 - Place this script on the host server.
-- Modify the variables (DOCKER_VOLUMES, BACKUP_ROOT, REMOTE_ROOT) to match your environment.
+- Modify the variables (`DOCKER_VOLUMES`, `BACKUP_ROOT`, `REMOTE_ROOT`) to match your environment.
 - Ensure zip and rclone are installed and configured.
 - Run the script with appropriate permissions:
 ```
 ./backup_script.sh
 ```
 
-## Requirements
+# Requirements
 - Docker CLI
-- zip utility
-- rclone configured for the desired remote storage
+- Zip utility
+- Rclone configured for the desired remote storage
 
-## Final Thoughts 
+# Final Thoughts 
 I hope that this detailed breakdown should help the reader understand each step of the script and its purpose. 
 
 # Complete Script
