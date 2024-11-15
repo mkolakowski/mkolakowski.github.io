@@ -30,7 +30,7 @@ The script begins by defining variables for paths, timestamps, and remote storag
  - `BACKUP_ROOT`: Root directory where backup files will be stored (e.g., `/portainer/backups`).
  - `BACKUP_DIR`: Directory for today's backups, generated based on the current date (e.g., `/portainer/backups/2024-11-15`).
  - `TIMESTAMP`: Current timestamp for naming backup files (e.g., `2024-11-15_10-30-00`).
- - `REMOTE_ROOT`: Remote location for backups using rclone (e.g., `b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes`).
+ - `REMOTE_ROOT`: Remote location for backups using rclone, change from default value of 0 if cloud backups desired (e.g., `b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes`).
 
 
 ## Directory Check and Creation
@@ -108,11 +108,16 @@ done
 ```
 
 ## Remote Upload
+- Checks if `REMOTE_ROOT` variable contains a rclone path
 - Rclone copy: Uploads the backup files from the local backup root directory to the defined remote location.
 - Logs the completion of the upload process.
 ```
-rclone copy --stats-one-line $BACKUP_ROOT $REMOTE_ROOT
-echo "Upload Completed"
+if [[ "$REMOTE_ROOT" == "0" ]]; then
+  echo "rclone variable not configured, please configure if cloud backups are desired
+else
+  rclone copy --stats-one-line $BACKUP_ROOT $REMOTE_ROOT
+  echo "Upload Completed"
+fi
 ```
 
 ## Key Features
@@ -156,8 +161,9 @@ BACKUP_DIR="$BACKUP_ROOT/$(date +%Y-%m-%d)"  # Directory where you want to save 
 # Timestamp
 TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)     # Current timestamp for backup files
 
-# Rclone remote to store backups
-REMOTE_ROOT="b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes"
+# Rclone remote to store backups, change from 0 to rclone path if cloud backups are desired
+# example "b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes"
+REMOTE_ROOT=0
 
 # -- Variables End--
 
@@ -219,6 +225,11 @@ done #-End of Container loop
 echo "All containers processed, starting upload"
 
 # Uploads any data in the backup root to backblaze
-rclone copy --stats-one-line $BACKUP_ROOT $REMOTE_ROOT
-echo "Upload Completed"
+if [[ "$REMOTE_ROOT" == "0" ]]; then
+  echo "rclone variable not configured, please configure if cloud backups are desired
+else
+  rclone copy --stats-one-line $BACKUP_ROOT $REMOTE_ROOT
+  echo "Upload Completed"
+fi
+
 ```
