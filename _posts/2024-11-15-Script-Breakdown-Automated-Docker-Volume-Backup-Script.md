@@ -30,7 +30,8 @@ The script begins by defining variables for paths, timestamps, and remote storag
  - `BACKUP_ROOT`: Root directory where backup files will be stored (e.g., `/portainer/backups`).
  - `BACKUP_DIR`: Directory for today's backups, generated based on the current date (e.g., `/portainer/backups/2024-11-15`).
  - `TIMESTAMP`: Current timestamp for naming backup files (e.g., `2024-11-15_10-30-00`).
- - `REMOTE_ROOT`: Remote location for backups using rclone, change from default value of 0 if cloud backups desired (e.g., `b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes`).
+ - `RCLONE_BACKUP`: Default value set to `FALSE`, change to `TRUE` if cloud backups are desired
+ - `REMOTE_ROOT`: Remote location for backups using rclone (e.g., `b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes`).
 
 
 ## Directory Check and Creation
@@ -112,11 +113,9 @@ done
 - Rclone copy: Uploads the backup files from the local backup root directory to the defined remote location.
 - Logs the completion of the upload process.
 ```
-if [[ "$REMOTE_ROOT" == "0" ]]; then
-  echo "rclone variable not configured, please configure if cloud backups are desired
-else
+if [[ "$RCLONE_BACKUP" == "TRUE" ]]; then
   rclone copy --stats-one-line $BACKUP_ROOT $REMOTE_ROOT
-  echo "Upload Completed"
+  echo "Upload Completed"  
 fi
 ```
 
@@ -156,14 +155,18 @@ DOCKER_VOLUMES="/portainer/volumes"
 
 # Location of to place backups
 BACKUP_ROOT="/portainer/backups"
-BACKUP_DIR="$BACKUP_ROOT/$(date +%Y-%m-%d)"  # Directory where you want to save the backups
+
+# Directory where you want to save the backups
+BACKUP_DIR="$BACKUP_ROOT/$(date +%Y-%m-%d)" 
 
 # Timestamp
 TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)     # Current timestamp for backup files
 
-# Rclone remote to store backups, change from 0 to rclone path if cloud backups are desired
-# example "b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes"
-REMOTE_ROOT=0
+# Change from FALSE to TRUE to enable rclone backups
+RCLONE_BACKUP="FALSE"
+
+# Rclone root path 
+REMOTE_ROOT="b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes"
 
 # -- Variables End--
 
@@ -225,11 +228,8 @@ done #-End of Container loop
 echo "All containers processed, starting upload"
 
 # Uploads any data in the backup root to backblaze
-if [[ "$REMOTE_ROOT" == "0" ]]; then
-  echo "rclone variable not configured, please configure if cloud backups are desired
-else
+if [[ "$RCLONE_BACKUP" == "TRUE" ]]; then
   rclone copy --stats-one-line $BACKUP_ROOT $REMOTE_ROOT
-  echo "Upload Completed"
+  echo "Upload Completed"  
 fi
-
 ```
