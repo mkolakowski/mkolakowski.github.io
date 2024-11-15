@@ -1,11 +1,13 @@
 ---
-title: 'Script : Docker Volume Backup Script in Bash'
+title: 'Scripting : Docker Volume Backup Script Using Bash'
 date: 2024-11-15
 permalink: /posts/2024/11/Script-Docker-Volume-Backup-Script-Using-Bash/
 tags:
   - Docker
   - Linux
   - Backup
+  - Scripting
+  - Rclone
 ---
 
 Below is a script created to locate and backup docker volumes
