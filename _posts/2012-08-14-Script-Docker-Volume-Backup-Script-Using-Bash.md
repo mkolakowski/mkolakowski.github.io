@@ -14,11 +14,22 @@ Below is a script created to locate and backup docker volumes
 ```
 #!/bin/bash
 
-# Variables
+# --Variables Start--
+
+# Location Docker volumes are stored
+DOCKER_VOLUMES="/portainer/volumes"
+
+# Location of to place backups
 BACKUP_ROOT="/portainer/backups"
 BACKUP_DIR="$BACKUP_ROOT/$(date +%Y-%m-%d)"  # Directory where you want to save the backups
+
+# Timestamp
 TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)     # Current timestamp for backup files
+
+# Rclone remote to store backups
 REMOTE_ROOT="b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes"
+
+# -- Variables End--
 
 # Check if backup directory exists, create if not
 if [ ! -d "$BACKUP_DIR" ]; then
@@ -57,22 +68,23 @@ for CONTAINER_NAME in $CONTAINERS; do
   echo "Stopping container $CONTAINER_NAME..."
   docker stop "$CONTAINER_NAME"
 
-  # Backup only volumes within /portainer/volumes/
+  # Backup only volumes within $DOCKER_VOLUMES
   for VOLUME_PATH in $VOLUMES; do
 
     #loops though volumes and zips them
-    if [[ "$VOLUME_PATH" == /portainer/volumes/* ]]; then
+    if [[ "$VOLUME_PATH" == $DOCKER_VOLUMES/* ]]; then
       backup_volume "$CONTAINER_NAME" "$VOLUME_PATH"
     else
       echo "Skipping non-eligible volume $VOLUME_PATH for container $CONTAINER_NAME."
     fi
-  done
-    # Restart the Docker container
-    echo "Starting container $CONTAINER_NAME..."
-    docker start "$CONTAINER_NAME"
+  done #-End of volume processing loop
+
+  # Restart the Docker container
+  echo "Starting container $CONTAINER_NAME..."
+  docker start "$CONTAINER_NAME"
 
   echo "Backup process for container $CONTAINER_NAME completed."
-done
+done #-End of Container loop
 
 echo "All containers processed, starting upload"
 
