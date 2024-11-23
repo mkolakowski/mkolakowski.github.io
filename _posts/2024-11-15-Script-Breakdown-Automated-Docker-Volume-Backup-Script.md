@@ -37,6 +37,7 @@ The script begins by defining variables for paths, timestamps, and remote storag
 ## Directory Check and Creation
 - Checks if the directory for today's backups exists.
 - Creates the directory if it does not.
+
 ```
 if [ ! -d "$BACKUP_DIR" ]; then
   mkdir -p "$BACKUP_DIR"
@@ -46,6 +47,7 @@ fi
 
 ## Container List
 - Retrieves a list of all running Docker containers by their names.
+
 ```
 CONTAINERS=$(docker ps --format "{{.Names}}")
 ```
@@ -61,6 +63,7 @@ CONTAINERS=$(docker ps --format "{{.Names}}")
 - Generates a unique backup file name based on the container name, volume name, and timestamp.
 - Compresses the volume contents into a .zip file.
 - Logs the success or failure of the operation.
+
 ```
 backup_volume() {
   local container_name=$1
@@ -88,6 +91,7 @@ backup_volume() {
 3. Backup Volumes: Iterates through volumes and backs up those matching the `DOCKER_VOLUMES` path.
 4. Restart Container: Starts the container after backup completion.
 5. Status Output: Displays the completion of the backup process for the container.
+
 ```
 for CONTAINER_NAME in $CONTAINERS; do
   echo "Processing container: $CONTAINER_NAME"
@@ -114,6 +118,7 @@ done
 - Checks if `REMOTE_ROOT` variable contains a rclone path
 - Rclone copy: Uploads the backup files from the local backup root directory to the defined remote location.
 - Logs the completion of the upload process.
+- 
 ```
 if [[ "$RCLONE_BACKUP" == "TRUE" ]]; then
   rclone copy --stats-one-line $BACKUP_ROOT $REMOTE_ROOT
@@ -134,6 +139,7 @@ fi
 - Modify the variables (`DOCKER_VOLUMES`, `BACKUP_ROOT`, `REMOTE_ROOT`) to match your environment.
 - Ensure zip and rclone are installed and configured.
 - Run the script with appropriate permissions:
+
 ```
 ./backup_script.sh
 ```
@@ -150,6 +156,7 @@ I hope that this detailed breakdown should help the reader understand each step 
 - 2024-11-15: Inital posting and documentation creation
 
 # Complete Script
+
 ```
 #!/bin/bash
 
