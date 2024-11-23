@@ -36,7 +36,10 @@ The script begins by defining variables for paths, timestamps, and remote storag
 
 
 ## Function: `purge_local_backups`
+### Process:
 - Locates any files or folders inside of `BACKUP_ROOT` that are older than `RETENTION_DAYS` and deletes them
+
+### Code Snippit:
 
 ```
 purge_local_backups() {
@@ -60,6 +63,8 @@ purge_local_backups() {
 - Generates a unique backup file name based on the container name, volume name, and timestamp.
 - Compresses the volume contents into a .zip file.
 - Logs the success or failure of the operation.
+
+### Code Snippit:
 
 ```
 backup_volume() {
@@ -87,6 +92,8 @@ backup_volume() {
 - Backup Volumes: Iterates through volumes and backs up those matching the `DOCKER_VOLUMES` path.
 - Restart Container: Starts the container after backup completion.
 - Status Output: Displays the completion of the backup process for the container.
+
+### Code Snippit:
 
 ```
 backup_container(){
@@ -117,6 +124,8 @@ backup_container(){
 - Checks if `REMOTE_ROOT` variable contains a rclone path
 - Rclone copy: Uploads the backup files from the local backup root directory to the defined remote location.
 - Logs the completion of the upload process.
+
+### Code Snippit:
 
 ```
 rclone_upload(){
