@@ -55,6 +55,7 @@ purge_local_backups() {
 ### Parameters:
 - `container_name`: Name of the container being processed.
 - `volume_path`: Path to the Docker volume.
+  
 ### Process:
 - Generates a unique backup file name based on the container name, volume name, and timestamp.
 - Compresses the volume contents into a .zip file.
@@ -80,12 +81,12 @@ backup_volume() {
 
 
 ## Function: `backup_container`
-### Steps for Each Container:
-1. Get Volumes: Fetches attached volumes for the container.
-2. Stop Container: Stops the container to ensure data consistency during backup.
-3. Backup Volumes: Iterates through volumes and backs up those matching the `DOCKER_VOLUMES` path.
-4. Restart Container: Starts the container after backup completion.
-5. Status Output: Displays the completion of the backup process for the container.
+### Process:
+- Get Volumes: Fetches attached volumes for the container.
+- Stop Container: Stops the container to ensure data consistency during backup.
+- Backup Volumes: Iterates through volumes and backs up those matching the `DOCKER_VOLUMES` path.
+- Restart Container: Starts the container after backup completion.
+- Status Output: Displays the completion of the backup process for the container.
 
 ```
 backup_container(){
@@ -112,6 +113,7 @@ backup_container(){
 ```
 
 ## Function : `rclone_upload`
+### Process:
 - Checks if `REMOTE_ROOT` variable contains a rclone path
 - Rclone copy: Uploads the backup files from the local backup root directory to the defined remote location.
 - Logs the completion of the upload process.
@@ -170,7 +172,7 @@ rclone_upload
 ```
 ./backup_script.sh
 ```
-
+ 
 # Requirements
 - Docker CLI
 - Zip utility
