@@ -30,6 +30,7 @@ The script begins by defining variables for paths, timestamps, and remote storag
  - `BACKUP_ROOT`: Root directory where backup files will be stored (e.g., `/portainer/backups`).
  - `BACKUP_DIR`: Directory for today's backups, generated based on the current date (e.g., `/portainer/backups/2024-11-15`).
  - `TIMESTAMP`: Current timestamp for naming backup files (e.g., `2024-11-15_10-30-00`).
+ - `RETENTION_DAYS`:# Retention period (in days), default value set to `10`
  - `RCLONE_BACKUP`: Default value set to `FALSE`, change to `TRUE` if cloud backups are desired
  - `REMOTE_ROOT`: Remote location for backups using rclone (e.g., `b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes`).
 
@@ -44,6 +45,19 @@ if [ ! -d "$BACKUP_DIR" ]; then
 fi
 ```
 
+
+## Delete old files and folders in BACKUP_ROOT
+- Locates any files or folders inside of `BACKUP_ROOT` that are older than `RETENTION_DAYS` and deletes them
+
+```
+echo "Deleting files and folders older than $RETENTION_DAYS days in $BACKUP_ROOT..."
+find "$BACKUP_ROOT" -mindepth 1 -mtime +$RETENTION_DAYS -exec rm -rf {} \;
+if [ $? -eq 0 ]; then
+  echo "Old files and folders deleted successfully."
+else
+  echo "Failed to delete old files and folders."
+fi
+```
 
 ## Container List
 - Retrieves a list of all running Docker containers by their names.
@@ -154,6 +168,7 @@ I hope that this detailed breakdown should help the reader understand each step 
 
 # Changelog
 - 2024-11-15: Inital posting and documentation creation
+- 2024-11-23: Added logic at script start to remove backup data older than n-number of days
 
 # Complete Script
 
@@ -174,6 +189,9 @@ BACKUP_DIR="$BACKUP_ROOT/$(date +%Y-%m-%d)"
 # Timestamp
 TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)     # Current timestamp for backup files
 
+# Retention period (in days)
+RETENTION_DAYS=10
+
 # Change from FALSE to TRUE to enable rclone backups
 RCLONE_BACKUP="FALSE"
 
@@ -185,6 +203,15 @@ REMOTE_ROOT="b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes"
 # Check if backup directory exists, create if not
 if [ ! -d "$BACKUP_DIR" ]; then
   mkdir -p "$BACKUP_DIR"
+fi
+
+# Delete old files and folders in BACKUP_ROOT
+echo "Deleting files and folders older than $RETENTION_DAYS days in $BACKUP_ROOT..."
+find "$BACKUP_ROOT" -mindepth 1 -mtime +$RETENTION_DAYS -exec rm -rf {} \;
+if [ $? -eq 0 ]; then
+  echo "Old files and folders deleted successfully."
+else
+  echo "Failed to delete old files and folders."
 fi
 
 # Get a list of all running containers
