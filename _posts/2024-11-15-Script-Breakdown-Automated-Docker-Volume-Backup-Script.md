@@ -35,44 +35,26 @@ The script begins by defining variables for paths, timestamps, and remote storag
  - `REMOTE_ROOT`: Remote location for backups using rclone (e.g., `b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes`).
 
 
-## Directory Check and Creation
-- Checks if the directory for today's backups exists.
-- Creates the directory if it does not.
-
-```
-if [ ! -d "$BACKUP_DIR" ]; then
-  mkdir -p "$BACKUP_DIR"
-fi
-```
-
-
-## Delete old files and folders in BACKUP_ROOT
+## Function: `purge_local_backups`
 - Locates any files or folders inside of `BACKUP_ROOT` that are older than `RETENTION_DAYS` and deletes them
 
 ```
-echo "Deleting files and folders older than $RETENTION_DAYS days in $BACKUP_ROOT..."
-find "$BACKUP_ROOT" -mindepth 1 -mtime +$RETENTION_DAYS -exec rm -rf {} \;
-if [ $? -eq 0 ]; then
-  echo "Old files and folders deleted successfully."
-else
-  echo "Failed to delete old files and folders."
-fi
+purge_local_backups() {
+  # Delete old files and folders in BACKUP_ROOT
+  echo "Deleting files and folders older than $RETENTION_DAYS days in $BACKUP_ROOT..."
+  find "$BACKUP_ROOT" -mindepth 1 -mtime +$RETENTION_DAYS -exec rm -rf {} \;
+  if [ $? -eq 0 ]; then
+    echo "Old files and folders deleted successfully."
+  else
+    echo "Failed to delete old files and folders."
+  fi
+}
 ```
-
-## Container List
-- Retrieves a list of all running Docker containers by their names.
-
-```
-CONTAINERS=$(docker ps --format "{{.Names}}")
-```
-
 
 ## Function: `backup_volume`
-
 ### Parameters:
 - `container_name`: Name of the container being processed.
 - `volume_path`: Path to the Docker volume.
-
 ### Process:
 - Generates a unique backup file name based on the container name, volume name, and timestamp.
 - Compresses the volume contents into a .zip file.
@@ -97,8 +79,7 @@ backup_volume() {
 ```
 
 
-## Main Loop: Container Processing
-
+## Function: `backup_container`
 ### Steps for Each Container:
 1. Get Volumes: Fetches attached volumes for the container.
 2. Stop Container: Stops the container to ensure data consistency during backup.
@@ -107,38 +88,70 @@ backup_volume() {
 5. Status Output: Displays the completion of the backup process for the container.
 
 ```
-for CONTAINER_NAME in $CONTAINERS; do
-  echo "Processing container: $CONTAINER_NAME"
-  VOLUMES=$(docker inspect --format='{{ range .Mounts }}{{ .Source }} {{ end }}' "$CONTAINER_NAME")
+backup_container(){
+  for CONTAINER_NAME in $CONTAINERS; do
+    echo "Processing container: $CONTAINER_NAME"
+    VOLUMES=$(docker inspect --format='{{ range .Mounts }}{{ .Source }} {{ end }}' "$CONTAINER_NAME")
 
-  echo "Stopping container $CONTAINER_NAME..."
-  docker stop "$CONTAINER_NAME"
+    echo "Stopping container $CONTAINER_NAME..."
+    docker stop "$CONTAINER_NAME"
   
-  for VOLUME_PATH in $VOLUMES; do
-    if [[ "$VOLUME_PATH" == $DOCKER_VOLUMES/* ]]; then
-      backup_volume "$CONTAINER_NAME" "$VOLUME_PATH"
-    else
-      echo "Skipping non-eligible volume $VOLUME_PATH for container $CONTAINER_NAME."
-    fi
-  done
+    for VOLUME_PATH in $VOLUMES; do
+      if [[ "$VOLUME_PATH" == $DOCKER_VOLUMES/* ]]; then
+        backup_volume "$CONTAINER_NAME" "$VOLUME_PATH"
+      else
+        echo "Skipping non-eligible volume $VOLUME_PATH for container $CONTAINER_NAME."
+      fi
+    done
 
-  echo "Starting container $CONTAINER_NAME..."
-  docker start "$CONTAINER_NAME"
-  echo "Backup process for container $CONTAINER_NAME completed."
-done
+    echo "Starting container $CONTAINER_NAME..."
+    docker start "$CONTAINER_NAME"
+    echo "Backup process for container $CONTAINER_NAME completed."
+  done
+}
 ```
 
-## Remote Upload
+## Function : `rclone_upload`
 - Checks if `REMOTE_ROOT` variable contains a rclone path
 - Rclone copy: Uploads the backup files from the local backup root directory to the defined remote location.
 - Logs the completion of the upload process.
-- 
+
 ```
-if [[ "$RCLONE_BACKUP" == "TRUE" ]]; then
-  rclone copy --stats-one-line $BACKUP_ROOT $REMOTE_ROOT
-  echo "Upload Completed"  
+rclone_upload(){
+  if [[ "$RCLONE_BACKUP" == "TRUE" ]]; then
+  echo "All containers processed, starting upload"
+    rclone copy --stats-one-line $BACKUP_ROOT $REMOTE_ROOT
+    echo "Upload Completed"  
+  fi
+}
+```
+
+## Main : Directory Check and Creation
+- Checks if the directory for today's backups exists.
+- Creates the directory if it does not.
+
+```
+if [ ! -d "$BACKUP_DIR" ]; then
+  mkdir -p "$BACKUP_DIR"
 fi
 ```
+
+## Main : Container List
+- Retrieves a list of all running Docker containers by their names.
+
+```
+CONTAINERS=$(docker ps --format "{{.Names}}")
+```
+
+## Main : Run Functions
+- Starts the named functions from this script
+
+```
+purge_local_backups
+backup_container
+rclone_upload
+```
+
 
 ## Key Features
 1. Volume Filtering:
@@ -200,22 +213,17 @@ REMOTE_ROOT="b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes"
 
 # -- Variables End--
 
-# Check if backup directory exists, create if not
-if [ ! -d "$BACKUP_DIR" ]; then
-  mkdir -p "$BACKUP_DIR"
-fi
-
-# Delete old files and folders in BACKUP_ROOT
-echo "Deleting files and folders older than $RETENTION_DAYS days in $BACKUP_ROOT..."
-find "$BACKUP_ROOT" -mindepth 1 -mtime +$RETENTION_DAYS -exec rm -rf {} \;
-if [ $? -eq 0 ]; then
-  echo "Old files and folders deleted successfully."
-else
-  echo "Failed to delete old files and folders."
-fi
-
-# Get a list of all running containers
-CONTAINERS=$(docker ps --format "{{.Names}}")
+# Function to back up a volume
+purge_local_backups() {
+  # Delete old files and folders in BACKUP_ROOT
+  echo "Deleting files and folders older than $RETENTION_DAYS days in $BACKUP_ROOT..."
+  find "$BACKUP_ROOT" -mindepth 1 -mtime +$RETENTION_DAYS -exec rm -rf {} \;
+  if [ $? -eq 0 ]; then
+    echo "Old files and folders deleted successfully."
+  else
+    echo "Failed to delete old files and folders."
+  fi
+}
 
 # Function to back up a volume
 backup_volume() {
@@ -235,40 +243,50 @@ backup_volume() {
   fi
 }
 
-# Loop through each container and check its volumes
-for CONTAINER_NAME in $CONTAINERS; do
-  echo "Processing container: $CONTAINER_NAME"
+# Function to backup up containers
+backup_container(){
+  for CONTAINER_NAME in $CONTAINERS; do
+    echo "Processing container: $CONTAINER_NAME"
+    VOLUMES=$(docker inspect --format='{{ range .Mounts }}{{ .Source }} {{ end }}' "$CONTAINER_NAME")
 
-  # Get a list of all attached volumes for the container
-  VOLUMES=$(docker inspect --format='{{ range .Mounts }}{{ .Source }} {{ end }}' "$CONTAINER_NAME")
+    echo "Stopping container $CONTAINER_NAME..."
+    docker stop "$CONTAINER_NAME"
+  
+    for VOLUME_PATH in $VOLUMES; do
+      if [[ "$VOLUME_PATH" == $DOCKER_VOLUMES/* ]]; then
+        backup_volume "$CONTAINER_NAME" "$VOLUME_PATH"
+      else
+        echo "Skipping non-eligible volume $VOLUME_PATH for container $CONTAINER_NAME."
+      fi
+    done
 
-  # Stop the Docker container
-  echo "Stopping container $CONTAINER_NAME..."
-  docker stop "$CONTAINER_NAME"
+    echo "Starting container $CONTAINER_NAME..."
+    docker start "$CONTAINER_NAME"
+    echo "Backup process for container $CONTAINER_NAME completed."
+  done
+}
 
-  # Backup only volumes within $DOCKER_VOLUMES
-  for VOLUME_PATH in $VOLUMES; do
+# Function to upload containers using rclone
+rclone_upload(){
+  if [[ "$RCLONE_BACKUP" == "TRUE" ]]; then
+  echo "All containers processed, starting upload"
+    rclone copy --stats-one-line $BACKUP_ROOT $REMOTE_ROOT
+    echo "Upload Completed"  
+  fi
+}
 
-    #loops though volumes and zips them
-    if [[ "$VOLUME_PATH" == $DOCKER_VOLUMES/* ]]; then
-      backup_volume "$CONTAINER_NAME" "$VOLUME_PATH"
-    else
-      echo "Skipping non-eligible volume $VOLUME_PATH for container $CONTAINER_NAME."
-    fi
-  done #-End of volume processing loop
+# MAIN
 
-  # Restart the Docker container
-  echo "Starting container $CONTAINER_NAME..."
-  docker start "$CONTAINER_NAME"
-
-  echo "Backup process for container $CONTAINER_NAME completed."
-done #-End of Container loop
-
-echo "All containers processed, starting upload"
-
-# Uploads any data in the backup root to backblaze
-if [[ "$RCLONE_BACKUP" == "TRUE" ]]; then
-  rclone copy --stats-one-line $BACKUP_ROOT $REMOTE_ROOT
-  echo "Upload Completed"  
+# Check if backup directory exists, create if not
+if [ ! -d "$BACKUP_DIR" ]; then
+  mkdir -p "$BACKUP_DIR"
 fi
+
+# Get a list of all running containers
+CONTAINERS=$(docker ps --format "{{.Names}}")
+
+purge_local_backups
+backup_container
+rclone_upload
+
 ```
