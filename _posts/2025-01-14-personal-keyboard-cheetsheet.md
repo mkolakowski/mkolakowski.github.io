@@ -1,5 +1,5 @@
 ---
-title: 'Future Blog Post'
+title: 'My Personal Keyboard Cheetsheet'
 date: 2025-01-14
 permalink: /posts/2025-01-14-personal-keyboard-cheetsheet/
 tags:
@@ -8,7 +8,7 @@ tags:
   - category2
 ---
 
-The Key profile of my keycron Q1 Pro 
+The Key profile of my keycron Q1 Pro [KSA]
 
 ![image](https://github.com/user-attachments/assets/21b9895a-f3c8-46e8-a86c-42dfb71b6f90)
 
