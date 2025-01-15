@@ -10,6 +10,17 @@ tags:
 
 This post contains waframe resources I have found
 
+## Progenetor Warframe Table
+| Element      | Progenitor Warframe                                       | Kuva Litch          | Sisters of Parvos   |
+|--------------|-----------------------------------------------------------|---------------------|---------------------|
+| Cold         | Frost, Gara, Hildryn,  Revenant, Titania, Trinity         | Vengeful Chill      | Gloriana Ephemera   |
+| Electricity  | Banshee, Excalibur, Limbo, Nova, Valkyr, Volt             | Vengeful Charge     | Sybillina Ephemera  |
+| Heat         | Chroma, Ember, Inaros, Nezha, Protea, Vauban, Wisp        | Vengeful Flame      | Zarina Ephemera     |
+| Impact       | Baruuk, Gauss, Grendel, Rhino, Sevagoth, Wukong, Zephyr   | Vengeful Shockwave  | Kyruna Ephemera     |
+| Toxin        | Atlas, Ivara, Khora, Nekros, Nidus, Oberon, Saryn         | Vengeful Pull       | Solena Ephemera     |
+| Magnetic     | Harrow, Hydroid, Lavos, Mag, Mesa, Xaku                   | Vengeful Trickster  | Hypatia Ephemera    |
+| Radiation    | Ash, Equinox, Garuda, Loki, Mirage, Nyx, Octavia, Yareli  | Vengeful Toxin      | Lucretia Ephemera   |
+
 ## Amp Guide
 ![image](https://github.com/user-attachments/assets/ec560bef-394a-44c2-ace4-fd9c8c0c3a81)
 
@@ -18,17 +29,6 @@ This post contains waframe resources I have found
 
 ## Damage Guide [2024]
 ![image](https://github.com/user-attachments/assets/8183b73c-48dc-4a50-a1d1-a51b9f4ebfdd)
-
-## Progenetor Warframe Table
-| Element      | Progenitor Warframe                                      | Kuva Litch         | Sisters of Parvos  |
-|------------  |----------------------------------------------------------|--------------------|--------------------|
-| Cold         | Frost, Gara, Hildryn,  Revenant, Titania, Trinity        | Vengeful Chill     | Gloriana Ephemera  |
-| Electricity  | Banshee, Excalibur, Limbo, Nova, Valkyr, Volt            | Vengeful Charge    | Sybillina Ephemera |
-| Heat         | Chroma, Ember, Inaros, Nezha, Protea, Vauban, Wisp       | Vengeful Flame     | Zarina Ephemera    |
-| Impact       | Baruuk, Gauss, Grendel, Rhino, Sevagoth, Wukong, Zephyr  | Vengeful Shockwave | Kyruna Ephemera    |
-| Toxin        | Atlas, Ivara, Khora, Nekros, Nidus, Oberon, Saryn        | Vengeful Pull      | Solena Ephemera    |
-| Magnetic     | Harrow, Hydroid, Lavos, Mag, Mesa, Xaku                  | Vengeful Trickster | Hypatia Ephemera   |
-| Radiation    | Ash, Equinox, Garuda, Loki, Mirage, Nyx, Octavia, Yareli | Vengeful Toxin     | Lucretia Ephemera  |
 
 ## Warframe Augment Mods List
 ![image](https://github.com/user-attachments/assets/633dd83b-9ec8-43bd-97b3-d82c2cf10f8d)
