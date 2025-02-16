@@ -10,6 +10,8 @@ tags:
   - Ubuntu
 ---
 
+In this post we will be setting up a Ubuntu-based virtual machine on Vultr, installing Docker and Docker Compose, and configuring storage for our containers.
+
 # Before we begin
 
 First we will create a Ubuntu VM, we will be using one we created in the cloud provider Vultr (My refferal link: https://www.vultr.com/?ref=9574728) and SSH in. 
@@ -53,6 +55,27 @@ sudo docker run hello-world
 ```
 This command downloads a test image and runs it in a container. When the container runs, it prints a confirmation message and exits.
 
+# Install Docker-Compose
+Docker-compose is a much easier way to manager container deployment as we can use configuration files to startup containers.
+
+### 1. Download Docker-Compose to your system
+
+Run the below commands to install the latest version of docker-compose on your system
+
+```
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+### 2. Verify installation complete
+
+Run the below command to validate your docker-compose install
+
+```
+docker-compose --version
+```
+
+Output should look like: `Docker Compose version v2.23.3`
 
 # Optional : Change docker volumes path
 
@@ -80,25 +103,3 @@ ExecStart=/usr/bin/dockerd --data-root /mnt/ssd-docker-data1/ -H fd:// --contain
 ### 3. Apply settings
 
 Once your changes have been completed, save the file by pressing `crtl+x` and slecting `y` for yes. Now reboot your VM to apply the settings.
-
-# Install Docker-Compose
-Docker-compose is a much easier way to manager container deployment as we can use configuration files to startup containers.
-
-### 1. Download Docker-Compose to your system
-
-Run the below commands to install the latest version of docker-compose on your system
-
-```
-sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-```
-
-### 2. Verify installation complete
-
-Run the below command to validate your docker-compose install
-
-```
-docker-compose --version
-```
-
-Output should look like: `Docker Compose version v2.23.3`
