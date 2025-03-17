@@ -193,6 +193,7 @@ I hope that this detailed breakdown should help the reader understand each step 
 # Changelog
 - 2024-11-15: Inital posting and documentation creation
 - 2024-11-23: Added logic at script start to remove backup data older than n-number of days
+- 2025-03-17: Updated upload logic to purge old backups, quieted output from zip command
 
 # Complete Script
 
@@ -202,10 +203,10 @@ I hope that this detailed breakdown should help the reader understand each step 
 # --Variables Start--
 
 # Location Docker volumes are stored
-DOCKER_VOLUMES="/portainer/volumes"
+DOCKER_VOLUMES="/opt/docker/volumes"
 
 # Location of to place backups
-BACKUP_ROOT="/portainer/backups"
+BACKUP_ROOT="/opt/docker-backups/"
 
 # Directory where you want to save the backups
 BACKUP_DIR="$BACKUP_ROOT/$(date +%Y-%m-%d)" 
@@ -213,14 +214,17 @@ BACKUP_DIR="$BACKUP_ROOT/$(date +%Y-%m-%d)"
 # Timestamp
 TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)     # Current timestamp for backup files
 
-# Retention period (in days)
-RETENTION_DAYS=10
+# Retention period (in days) - LOCAL
+RETENTION_DAYS="3"
+
+# Retention period (in days) - RCLONE
+REMOTE_RETENTION_DAYS="21"
 
 # Change from FALSE to TRUE to enable rclone backups
-RCLONE_BACKUP="FALSE"
+RCLONE_BACKUP="TRUE"
 
 # Rclone root path 
-REMOTE_ROOT="b2-kolakloud:/kolakloud/docker.kolakloud.com/volumes"
+REMOTE_ROOT="b2-kolakloud:/kolakloud/docker/volumes/"
 
 # -- Variables End--
 
@@ -245,7 +249,7 @@ backup_volume() {
 
   #Zips files in docker volume, to see output, change -pr to -r
   echo "Backing up volume at $volume_path for container $container_name..."
-  zip -pr "$backup_file" "$volume_path"
+  zip -rq "$backup_file" "$volume_path"
 
   if [ $? -eq 0 ]; then
     echo "Backup for $volume_path completed successfully: $backup_file"
@@ -273,16 +277,31 @@ backup_container(){
 
     echo "Starting container $CONTAINER_NAME..."
     docker start "$CONTAINER_NAME"
-    echo "Backup process for container $CONTAINER_NAME completed."
+    echo "Local backup for container $CONTAINER_NAME completed."
   done
 }
 
 # Function to upload containers using rclone
 rclone_upload(){
   if [[ "$RCLONE_BACKUP" == "TRUE" ]]; then
-  echo "All containers processed, starting upload"
+    echo "All containers processed, starting upload"
     rclone copy --stats-one-line $BACKUP_ROOT $REMOTE_ROOT
-    echo "Upload Completed"  
+    #cp -r $BACKUP_ROOT/*  /mnt/b2-kolakloud-backup/kolakloud/docker/volumes/
+    echo "Container Backup Upload Completed"
+  fi
+}
+
+# Function to purge remote backups older than specified days
+purge_remote_backups() {
+  local days=$1
+  if [[ "$RCLONE_BACKUP" == "TRUE" ]]; then
+    echo "Purging remote backups older than $days days..."
+    rclone delete --min-age ${days}d --include "**/*" $REMOTE_ROOT
+    if [ $? -eq 0 ]; then
+      echo "Old remote backups deleted successfully."
+    else
+      echo "Failed to delete old remote backups."
+    fi
   fi
 }
 
@@ -299,5 +318,6 @@ CONTAINERS=$(docker ps --format "{{.Names}}")
 purge_local_backups
 backup_container
 rclone_upload
+purge_remote_backups $REMOTE_RETENTION_DAYS
 
 ```
