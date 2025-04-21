@@ -16,3 +16,5 @@ My keyboard has the bannanas
 
 ![image](https://github.com/user-attachments/assets/30a9e554-600e-47d1-b8b2-2493cb3bd4b2)
 
+More profile comparisons:
+![image](https://github.com/user-attachments/assets/495285fe-8c86-4a9e-bc13-9612b85bffa7)
